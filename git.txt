@@ -1,0 +1,103 @@
+                 Git(version control system)
+
+
+
+
+working dir --->staging area --->local repository ---> remote repo
+
+--> whatever files which we are currently working will by default available in the working directory.
+--> Before committing those files into local repo we have to add them to the staging area.
+--> From staging area we can commit them into local repo & finally we can push them into remote repo.
+
+This is the exact process.
+
+Git commands
+----------------------
+1. git init 
+
+--> To create local repo for our workspace we use this command. when we use this command there wiil be created a new empty file with name as .git where '.' represents hidden file. 
+
+2.git status
+
+-->we use this command to see the status of the files.
+    Here we can see untracked files which means the files are still in working dir.
+
+3.git add
+
+--> To add the files to staging area we use this command.
+
+    Here we can add all the files / we can add specific files by giving their names
+
+eg:- 1. git add . (adds all the files to staging area)
+     2. git add fileName fileName (adds only specified files)
+
+4.Before commiting to local repo we need to add 2 configs . this can be done only first time.
+     1.git config --global user.email "kalyanikoyi143@gmail.com"
+     2.git config --global user.name "kalyanikoyi"
+
+5. git commit -m "write any msg"
+
+--> we use this command to add the files from staging area to local repo.
+
+---------------------------------
+6. git commit -a -m "message"
+If we do any changes to the commited files which are in local repo then we use this command.
+--------------------------------------------------------------
+
+7.git log
+
+--> using this command we can see all the commits and the author who commited and also we can see date and time of commit. 
+
+8.clear 
+
+--> we can use clear command to clear all the unnecessary data
+
+9.ls
+
+--> we can use ls to see what are all the files available in our folder
+
+10. vim fileName
+
+--> we use this command to create new file in our folder.
+
+11. git diff  
+
+--> To compare the file contents between working dir - staging / between working dir - local repo / between local repo - remote repo we can use git diff command.
+--> Basically used for comparing the files in version control system.
+
+requirement 1 : To see the difference in file content between working dir and staging area (after adding file to staging area if we do any changes in working repo then we can see the difference b/w those two using this command) 
+
+---->  git diff fileName ----- 
+
+req 2 : To see the difference in file content between working dir and local repo.(after commiting file to local repo if we do any changes in working repo then we can see the difference b/w those two using this command) 
+
+----> git diff HEAD fileName -------
+
+Head represents last commit.
+
+req 3 : To see the difference in file content between staged area and local repo.(after commiting file to local repo if we do any changes in working repo and added to staging area then we can see the difference staging & local repo using this command)  
+
+----> git diff --staged HEAD fileName ---
+
+req 4 : To see the difference in file content between specific commit in local repo & working dir.(If we have commited multiple times & if we do any changes in working repo then we can see the difference b/w working dir & particular commit of local repo using this command)
+
+  --- In order to perform this 1st we need to know the ids of that particular commit . 
+  ---- To know that we use ---> git log --oneline command . there we can see the commit ids.   
+
+----> git diff commitId fileName
+
+req 5 : To see the difference in file content between specific commit in local repo & staging area.
+
+----> git diff --staged commitId
+
+req 6 : To see the difference in file content between 2 specific commits
+
+----> git diff 1stCommitId 2ndCommitId FileName
+
+req 7 : To see the difference in content between 2 branches
+
+----> git diff branch1 branch2 
+
+req 8 : To see the difference in content between local & remote repo
+
+----> git diff localRepoBranch remoteRepoBranch
